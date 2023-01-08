@@ -40,12 +40,6 @@ with h5py.File('records.h5', 'r') as filinger:
             used_dates.append(formatted_date)
 
 
-print(all_data, 'all_data')
-print(used_dates, 'used_dates')
-
-
-
-
 
 for data in all_data:
 
@@ -54,12 +48,6 @@ for data in all_data:
         all_tesla_data.append(make_array[0][2])
         all_rivian_data.append(make_array[0][3])
         all_lucid_data.append(make_array[0][4])
-
-#     print(np.array(lucid_check), 'lucid_check')
-
-
-print(len(all_dates), 'alldates')
-print(len(all_gasprices), 'all_gasprices')
 
 
 df = pd.DataFrame({'Date': used_dates,
@@ -72,22 +60,5 @@ df = pd.DataFrame({'Date': used_dates,
                    'Rivian': all_rivian_data,
                    'Lucid': all_lucid_data})
 
-# g = sns.lineplot(x = "Date", y = "Tesla",
-#              data = df)
-
-# g = sns.lineplot(x = "Date", y = "Rivian",
-#              data = df)
-
-# g = sns.lineplot(x = "Date", y = "Lucid",
-#              data = df)
-
-
-# g = sns.tsplot(x = "Date", y = "Megawatth",
-#              data = df)
-
-# g = sns.lineplot(x = "Date", y = "Gasprice",
-            #  data = df)
-
-# plt.xticks(rotation = 25)
 df.plot()
 plt.show()
